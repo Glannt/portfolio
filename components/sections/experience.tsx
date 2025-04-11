@@ -66,7 +66,7 @@ export default function Experience() {
           Work Experience
         </h2>
         <p className='text-muted-foreground md:text-xl max-w-[800px] mx-auto'>
-          My professional journey and the companies I've worked with.
+          My professional journey and the companies I&apos;ve worked with.
         </p>
       </motion.div>
 

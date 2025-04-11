@@ -17,7 +17,7 @@ export default function HomeComponent() {
           <div className='space-y-6'>
             <div className='space-y-2'>
               <h1 className='text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl'>
-                Hi, I'm <span className='text-primary'>Thành Đô</span>
+                Hi, I&apos;m <span className='text-primary'>Thành Đô</span>
               </h1>
               <h2 className='text-2xl sm:text-3xl font-medium text-muted-foreground'>
                 Backend Developer

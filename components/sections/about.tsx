@@ -32,17 +32,18 @@ export default function AboutComponent() {
           <h3 className='text-2xl font-bold'>My Story</h3>
           <div className='space-y-4 text-muted-foreground'>
             <p>
-              I'm a passionate developer with over 5 years of experience in building web
+              I&apos;m a passionate developer with over 5 years of experience in building web
               applications. My journey in tech began when I built my first website at the age of 16,
-              and I've been hooked ever since.
+              and I&apos;ve been hooked ever since.
             </p>
             <p>
-              After graduating with a degree in Computer Science, I've worked with various startups
-              and established companies, helping them build scalable and user-friendly applications.
+              After graduating with a degree in Computer Science, I&apos;ve worked with various
+              startups and established companies, helping them build scalable and user-friendly
+              applications.
             </p>
             <p>
-              When I'm not coding, you can find me hiking, reading science fiction, or experimenting
-              with new recipes in the kitchen.
+              When I&apos;m not coding, you can find me hiking, reading science fiction, or
+              experimenting with new recipes in the kitchen.
             </p>
           </div>
 
