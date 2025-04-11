@@ -1,11 +1,11 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Blog",
-  description: "Read my latest articles and thoughts on various topics.",
+  title: "Project",
+  description: "View project ",
 };
 
-export default function BlogLayout({ children }: { children: React.ReactNode }) {
+export default function ProjectLayout({ children }: { children: React.ReactNode }) {
   return (
     <section className='flex flex-col items-center justify-center gap-4 py-8 md:py-10'>
       <div className='inline-block max-w-screen-md text-center justify-center'>{children}</div>
