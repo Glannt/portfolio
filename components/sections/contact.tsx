@@ -1,11 +1,17 @@
 "use client";
 
-import { useState } from "react";
+import type { ChangeEvent, FormEvent } from "react";
+
+import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Github, Linkedin, Twitter, Send } from "lucide-react";
+import { Mail, Phone, MapPin, Github, Linkedin, Send } from "lucide-react";
 import { Input, Textarea } from "@heroui/input";
 import { Button } from "@heroui/button";
 import { Card, CardBody } from "@heroui/react";
+
+import { siteConfig } from "@/config/site";
+
+const contactEmail = "tongnguyenhthanhdo@gmail.com";
 
 export default function ContactComponent() {
   const [formData, setFormData] = useState({
@@ -14,26 +20,43 @@ export default function ContactComponent() {
     subject: "",
     message: "",
   });
+  const [status, setStatus] = useState("");
 
-  const handleChange = (e: any) => {
+  const emailBody = useMemo(
+    () =>
+      [
+        `Name: ${formData.name}`,
+        `Email: ${formData.email}`,
+        "",
+        formData.message,
+      ].join("\n"),
+    [formData.email, formData.message, formData.name],
+  );
+
+  const mailtoHref = useMemo(
+    () =>
+      `mailto:${contactEmail}?subject=${encodeURIComponent(
+        formData.subject,
+      )}&body=${encodeURIComponent(emailBody)}`,
+    [emailBody, formData.subject],
+  );
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
 
     setFormData((prev) => ({ ...prev, [name]: value }));
+    setStatus("");
   };
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Handle form submission logic here
-    console.log(formData);
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
-    });
-    // Show success message
-    alert("Message sent successfully!");
+
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(
+      contactEmail,
+    )}&su=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(emailBody)}`;
+
+    window.open(gmailUrl, "_blank", "noopener,noreferrer");
+    setStatus("Gmail compose opened with your message filled in.");
   };
 
   return (
@@ -53,7 +76,7 @@ export default function ContactComponent() {
         </p>
       </motion.div>
 
-      <div className='grid grid-cols-1 lg:grid-cols-2 gap-12'>
+      <div className='grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(320px,0.85fr)] lg:gap-12'>
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -61,7 +84,7 @@ export default function ContactComponent() {
           whileInView={{ opacity: 1, x: 0 }}
         >
           <form className='space-y-6' onSubmit={handleSubmit}>
-            <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
+            <div className='grid grid-cols-1 gap-4 sm:grid-cols-2'>
               <div className='space-y-2'>
                 <label htmlFor='name'>Name</label>
                 <Input
@@ -104,15 +127,22 @@ export default function ContactComponent() {
                 id='message'
                 name='message'
                 placeholder='Your message...'
-                rows={6}
+                rows={7}
                 value={formData.message}
                 onChange={handleChange}
               />
             </div>
-            <Button className='w-full sm:w-auto' type='submit'>
-              <Send className='mr-2 h-4 w-4' />
-              Send Message
-            </Button>
+            <div className='flex flex-col gap-3 sm:flex-row sm:items-center'>
+              <Button color='primary' type='submit'>
+                <Send className='mr-2 h-4 w-4' />
+                Send with Gmail
+              </Button>
+              <Button as='a' href={mailtoHref} variant='bordered'>
+                <Mail className='mr-2 h-4 w-4' />
+                Mail app
+              </Button>
+            </div>
+            {status && <p className='text-sm text-success'>{status}</p>}
           </form>
         </motion.div>
 
@@ -135,9 +165,9 @@ export default function ContactComponent() {
                     <p className='text-muted-foreground'>
                       <a
                         className='hover:text-primary transition-colors'
-                        href='mailto:tongnguyenhthanhdo@gmail.com'
+                        href={`mailto:${contactEmail}`}
                       >
-                        tongnguyenhthanhdo@gmail.com
+                        {contactEmail}
                       </a>
                     </p>
                   </div>
@@ -154,7 +184,7 @@ export default function ContactComponent() {
                   <div>
                     <h3 className='font-semibold'>Phone</h3>
                     <p className='text-muted-foreground'>
-                      <a className='hover:text-primary transition-colors' href='tel:+1234567890'>
+                      <a className='hover:text-primary transition-colors' href='tel:+84368761064'>
                         0368761064
                       </a>
                     </p>
@@ -171,7 +201,7 @@ export default function ContactComponent() {
                   </div>
                   <div>
                     <h3 className='font-semibold'>Location</h3>
-                    <p className='text-muted-foreground'>Thủ Đức - Hồ Chí Minh City</p>
+                    <p className='text-muted-foreground'>Thu Duc - Ho Chi Minh City</p>
                   </div>
                 </div>
               </CardBody>
@@ -184,7 +214,7 @@ export default function ContactComponent() {
               <a
                 aria-label='GitHub'
                 className='p-3 rounded-full bg-muted hover:bg-primary/20 transition-colors'
-                href='https://github.com/'
+                href={siteConfig.links.github}
                 rel='noopener noreferrer'
                 target='_blank'
               >
@@ -193,20 +223,11 @@ export default function ContactComponent() {
               <a
                 aria-label='LinkedIn'
                 className='p-3 rounded-full bg-muted hover:bg-primary/20 transition-colors'
-                href='https://linkedin.com/'
+                href={siteConfig.links.linkedin}
                 rel='noopener noreferrer'
                 target='_blank'
               >
                 <Linkedin className='h-5 w-5' />
-              </a>
-              <a
-                aria-label='Twitter'
-                className='p-3 rounded-full bg-muted hover:bg-primary/20 transition-colors'
-                href='https://twitter.com/'
-                rel='noopener noreferrer'
-                target='_blank'
-              >
-                <Twitter className='h-5 w-5' />
               </a>
             </div>
           </div>

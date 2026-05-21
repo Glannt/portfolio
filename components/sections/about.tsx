@@ -17,7 +17,7 @@ export default function AboutComponent() {
       >
         <h2 className='text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl'>About Me</h2>
         <p className='text-muted-foreground md:text-xl max-w-[800px] mx-auto'>
-          Get to know more about my background, skills, and what drives me.
+          Get to know more about my academic background, skills, and what drives me as an engineer.
         </p>
       </motion.div>
 
@@ -30,32 +30,32 @@ export default function AboutComponent() {
           whileInView={{ opacity: 1, x: 0 }}
         >
           <h3 className='text-2xl font-bold'>My Story</h3>
-          <div className='space-y-4 text-muted-foreground'>
+          <div className='space-y-4 text-muted-foreground leading-relaxed'>
             <p>
-              I&apos;m a passionate developer with over 5 years of experience in building web
-              applications. My journey in tech began when I built my first website at the age of 16,
-              and I&apos;ve been hooked ever since.
+              I am currently a Software Engineering student at **FPT University**, specializing in building 
+              high-performance full-stack web architectures and hardware-integrated IoT solutions. 
+              My passion lies in bridging the gap between elegant software design and fast, reliable execution.
             </p>
             <p>
-              After graduating with a degree in Computer Science, I&apos;ve worked with various
-              startups and established companies, helping them build scalable and user-friendly
-              applications.
+              Throughout my academic journey, I have dove deep into real-world project development, ranging from 
+              customizable monorepo e-commerce frameworks with AI visual styling engines to real-time IoT-enabled 
+              Smart Locker ecosystems using serial commands and MQTT communication.
             </p>
             <p>
-              When I&apos;m not coding, you can find me hiking, reading science fiction, or
-              experimenting with new recipes in the kitchen.
+              I thrive on tackling complex architecture challenges—such as automated exam question banks, 
+              microservice synchronization patterns, database optimization, and secure API lifecycles.
             </p>
           </div>
 
           <div className='space-y-3'>
-            <h4 className='text-xl font-semibold'>Personal Interests</h4>
+            <h4 className='text-xl font-semibold'>Core Interests</h4>
             <div className='flex flex-wrap gap-2'>
-              <Badge>Photography</Badge>
-              <Badge>Hiking</Badge>
-              <Badge>Reading</Badge>
-              <Badge>Cooking</Badge>
-              <Badge>Travel</Badge>
-              <Badge>Music</Badge>
+              <Badge color="primary" variant="flat">Backend Architecture</Badge>
+              <Badge color="secondary" variant="flat">IoT & Embedded Systems</Badge>
+              <Badge color="success" variant="flat">Monorepos & Microservices</Badge>
+              <Badge color="warning" variant="flat">Automated Workflows (n8n)</Badge>
+              <Badge color="default" variant="flat">Database Optimization</Badge>
+              <Badge color="danger" variant="flat">Real-time Communications</Badge>
             </div>
           </div>
         </motion.div>
@@ -70,7 +70,7 @@ export default function AboutComponent() {
           <h3 className='text-2xl font-bold'>Personal Traits</h3>
           <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
             {personalTraits.map((trait, index) => (
-              <Card key={index}>
+              <Card key={index} className="hover:border-primary/40 transition-colors">
                 <CardBody className='p-6 space-y-2'>
                   <div className='flex items-center gap-2'>
                     <div className='p-2 rounded-full bg-primary/10 text-primary'>{trait.icon}</div>
