@@ -65,9 +65,10 @@ export const siteConfig = {
   ],
   links: {
     github: "https://github.com/Glannt",
+    linkedin: "https://www.linkedin.com/in/th%C3%A0nh-%C4%91%C3%B4-512719213/",
     twitter: "https://twitter.com/hero_ui",
     docs: "https://heroui.com",
     discord: "https://discord.gg/9b6yyZKmH4",
-    sponsor: "https://patreon.com/jrgarciadev",
+    sponsor: "https://www.linkedin.com/in/th%C3%A0nh-%C4%91%C3%B4-512719213/",
   },
 };
