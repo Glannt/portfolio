@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Tabs, Tab } from "@heroui/tabs";
+import { Tabs, Tab } from "@heroui/react";
 
 import AboutComponent from "@/components/sections/about";
 import Education from "@/components/sections/educations";
