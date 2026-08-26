@@ -4,10 +4,11 @@ import { Tabs, Tab } from "@heroui/react";
 
 import AboutComponent from "@/components/sections/about";
 import Education from "@/components/sections/educations";
+import Experience from "@/components/sections/experience";
 import Skills from "@/components/sections/skills";
 
 export default function ResumePage() {
-  const [activeSection, setActiveSection] = React.useState<string>("education");
+  const [activeSection, setActiveSection] = React.useState<string>("experience");
 
   return (
     <div className='flex flex-col gap-8'>
@@ -19,6 +20,7 @@ export default function ResumePage() {
           selectedKey={activeSection}
           onSelectionChange={(key) => setActiveSection(key as string)}
         >
+          <Tab key='experience' title='Experience' />
           <Tab key='education' title='Education' />
           <Tab key='skills' title='Skills' />
           <Tab key='aboutMe' title='About me' />
@@ -27,6 +29,12 @@ export default function ResumePage() {
 
       <div className='w-full'>
         {/* Content section */}
+        {activeSection === "experience" && (
+          <div>
+            <Experience />
+          </div>
+        )}
+
         {activeSection === "education" && (
           <div>
             <h2 className='text-2xl font-bold mb-4'>Education</h2>
