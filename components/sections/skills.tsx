@@ -256,6 +256,14 @@ const skillTrees: SkillTreeBranch[] = [
           ],
         },
         {
+          id: "git_vcs",
+          name: "Git & Version Control",
+          level: "Basic",
+          tagline: "Branching Strategies, Conventional Commits, Rebasing & GitHub Workflows",
+          tier: 2,
+          projectUsage: "Version control & multi-package monorepo releases",
+        },
+        {
           id: "iot_hardware",
           name: "IoT & Hardware Integration",
           level: "Basic",
