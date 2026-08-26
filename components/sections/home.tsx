@@ -28,12 +28,12 @@ export default function HomeComponent() {
               Passionate about clean code, robust API structures, and real-time physical-digital systems.
             </p>
             <div className='flex flex-wrap gap-4'>
-              <Link href='/project'>
-                <Button size='lg' variant='solid' color='primary'>
+              <Link href='/#projects'>
+                <Button color='primary' size='lg' variant='solid'>
                   View My Work
                 </Button>
               </Link>
-              <Link href='/contact'>
+              <Link href='/#contact'>
                 <Button size='lg' variant='bordered'>
                   Contact Me
                 </Button>
@@ -48,13 +48,14 @@ export default function HomeComponent() {
           initial={{ opacity: 0, x: 50 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <div className='relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-primary/20 shadow-2xl shadow-primary/10'>
+          <div className='relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-primary/30 shadow-2xl shadow-primary/20 ring-4 ring-primary/10'>
             <Image
               fill
               priority
               alt='Tống Nguyễn Thành Đô'
               className='object-cover transition-all duration-500 hover:scale-105'
-              src='/assets/images/photo.png'
+              sizes='(min-width: 768px) 384px, 288px'
+              src='/avatar.jpg'
             />
           </div>
         </motion.div>

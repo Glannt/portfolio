@@ -1,66 +1,59 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: "Config route",
-  description: "Make beautiful websites regardless of your design experience.",
+  name: "Tống Nguyễn Thành Đô | Full-Stack & IoT Systems Engineer",
+  description:
+    "Portfolio of Tống Nguyễn Thành Đô - Full-Stack Developer, Spring Modulith, NestJS, and IoT Systems Engineer.",
   navItems: [
     {
       label: "Home",
-      href: "/",
+      href: "/#home",
     },
     {
-      label: "Resume",
-      href: "/resume",
+      label: "Experience",
+      href: "/#experience",
     },
     {
-      label: "Project",
-      href: "/project",
+      label: "Skills",
+      href: "/#skills",
+    },
+    {
+      label: "Projects",
+      href: "/#projects",
     },
     {
       label: "Contact",
-      href: "/contact",
+      href: "/#contact",
     },
     {
-      label: "Blog",
+      label: "Handbook",
       href: "/blog",
-    },
-    {
-      label: "About",
-      href: "/about",
     },
   ],
   navMenuItems: [
     {
-      label: "Profile",
-      href: "/profile",
+      label: "Home",
+      href: "/#home",
     },
     {
-      label: "Dashboard",
-      href: "/dashboard",
+      label: "Experience",
+      href: "/#experience",
+    },
+    {
+      label: "Skills",
+      href: "/#skills",
     },
     {
       label: "Projects",
-      href: "/projects",
+      href: "/#projects",
     },
     {
-      label: "Team",
-      href: "/team",
+      label: "Contact",
+      href: "/#contact",
     },
     {
-      label: "Calendar",
-      href: "/calendar",
-    },
-    {
-      label: "Settings",
-      href: "/settings",
-    },
-    {
-      label: "Help & Feedback",
-      href: "/help-feedback",
-    },
-    {
-      label: "Logout",
-      href: "/logout",
+      label: "Handbook",
+      href: "/blog",
     },
   ],
   links: {
